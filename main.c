@@ -13,8 +13,10 @@ void sip(void) {
 	ARRAY(out, 64);
 	ARRAY(key, 16);
 
-	for(size_t i = 0; i < 64; i++)
+	for(size_t i = 0; i < 64; i++) {
 		siphash(in, i, key, out, 8);
+		siphash(in, i, key, out, 16);
+	}
 }
 
 void half(void) {
@@ -22,8 +24,10 @@ void half(void) {
 	ARRAY(out, 64);
 	ARRAY(key, 16);
 
-	for(size_t i = 0; i < 64; i++)
+	for(size_t i = 0; i < 64; i++) {
+		halfsiphash(in, i, key, out, 4);
 		halfsiphash(in, i, key, out, 8);
+	}
 }
 
 
